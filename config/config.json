@@ -1,11 +1,11 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "branch",
-    "host": "127.0.0.1",
+    "username": "rmnwsrrtxfyrsi",
+    "password": "63d428e2de3caddc955caf548771993b3abb47e37541aeb5be4fd970a13fbdff",
+    "database": "daun7rh68elpt",
+    "host": "ec2-52-73-8-82.compute-1.amazonaws.com",
     "dialect": "mysql",
-    "port":"3307"
+    "port":"5432"
   },
   "test": {
     "username": "root",
@@ -16,11 +16,11 @@
     "port":"3307"
   },
   "production": {
-    "username": "root",
-    "password": "root",
-    "database": "branchProduction",
-    "host": "127.0.0.1",
+    "username": "rmnwsrrtxfyrsi",
+    "password": "63d428e2de3caddc955caf548771993b3abb47e37541aeb5be4fd970a13fbdff",
+    "database": "daun7rh68elpt",
+    "host": "ec2-52-73-8-82.compute-1.amazonaws.com",
     "dialect": "mysql",
-    "port":"3307"
+    "port":"5432"
   }
 }
