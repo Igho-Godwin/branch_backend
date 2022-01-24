@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
       },
       userId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       messageId: {
