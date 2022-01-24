@@ -51,6 +51,9 @@ const secureRoute = require("./secure-routes");
 app.use("/api/", passport.authenticate("jwt", { session: false }), secureRoute);
 
 const PORT = process.env.NODE_DOCKER_PORT || 8080;
+if(process.env.NODE_ENV === "production"){
+  const PORT = process.env.PORT || 8080;
+}
 const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
