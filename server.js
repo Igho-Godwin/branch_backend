@@ -38,7 +38,7 @@ app.use(limiter);
 require("./auth/auth");
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to branch  application.s" });
+  res.json({ message: "Welcome to branch  application." });
 });
 
 app.use(passport.initialize());
