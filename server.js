@@ -6,8 +6,12 @@ const rateLimit = require("express-rate-limit");
 
 const app = express();
 
+var corsOptions = {
+  origin: process.env.FRONTEND_ORIGIN,
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 const bodyParser = require("body-parser");
