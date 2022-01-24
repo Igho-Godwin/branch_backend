@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
       },
       userId: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
       },
       messageId: {
         type: DataTypes.UUID,
