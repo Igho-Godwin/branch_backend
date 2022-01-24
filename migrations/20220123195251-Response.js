@@ -22,7 +22,7 @@ module.exports = {
         allowNull: false,
       },
       userId: {
-        type: Sequelize.UUID,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       from: {
