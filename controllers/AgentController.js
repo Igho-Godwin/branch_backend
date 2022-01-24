@@ -50,7 +50,7 @@ exports.create = async (req, res) => {
 
 exports.login = async (req, res) => {
   const schema = Joi.object({
-    email: Joi.string().min(3).max(50).required(),
+    email: Joi.string().min(3).max(50).required().email(),
   });
 
   const { email } = req.body;
