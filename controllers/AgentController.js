@@ -7,7 +7,7 @@ exports.create = async (req, res) => {
   const schema = Joi.object({
     firstName: Joi.string().min(3).max(50).required(),
     lastName: Joi.string().min(3).max(50).required(),
-    email: Joi.string().min(3).max(50).required(),
+    email: Joi.string().min(3).max(50).required().email(),
   });
 
   const result = schema.validate(req.body);
