@@ -19,6 +19,9 @@ The following should be installed in your machine
 
 - Node v16.13.0 and above if you are not using docker
 
+## To Run tests
+- npm test
+
 ## How To Install And Run The Application on Local
 
 - Clone this [Repo]('https://github.com/Igho-Godwin/branch_backend') and `cd` into it
