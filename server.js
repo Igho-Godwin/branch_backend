@@ -50,10 +50,10 @@ const secureRoute = require("./secure-routes");
 // Plug in the JWT strategy as a middleware so only verified users can access this route.
 app.use("/api/", passport.authenticate("jwt", { session: false }), secureRoute);
 
-//const PORT = process.env.NODE_DOCKER_PORT || 8080;
-//if(process.env.NODE_ENV === "production"){
-  const PORT = process.env.PORT || 8080;
-//}
+let PORT = process.env.NODE_DOCKER_PORT || 8080;
+if (process.env.NODE_ENV === "production") {
+  PORT = process.env.PORT || 8080;
+}
 const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
