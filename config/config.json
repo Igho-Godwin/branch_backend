@@ -4,7 +4,7 @@
     "password": "63d428e2de3caddc955caf548771993b3abb47e37541aeb5be4fd970a13fbdff",
     "database": "daun7rh68elpt",
     "host": "ec2-52-73-8-82.compute-1.amazonaws.com",
-    "dialect": "mysql",
+    "dialect": "postgres",
     "port":"5432"
   },
   "test": {
@@ -20,7 +20,7 @@
     "password": "63d428e2de3caddc955caf548771993b3abb47e37541aeb5be4fd970a13fbdff",
     "database": "daun7rh68elpt",
     "host": "ec2-52-73-8-82.compute-1.amazonaws.com",
-    "dialect": "mysql",
+    "dialect": "postgres",
     "port":"5432"
   }
 }
