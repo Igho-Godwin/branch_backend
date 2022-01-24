@@ -55,14 +55,14 @@ exports.findAll = async (offset, limit, agentId, param) => {
           MessageModel.sequelize.literal(
             "CASE WHEN 'message' like '%loan%' THEN 1 ELSE 0 END "
           ),
-          "loanMessage",
+          "loanmessage",
         ],
       ],
     },
     offset,
     limit,
     order: [
-      [MessageModel.sequelize.literal("loanMessage"), "desc"],
+      [MessageModel.sequelize.literal("loanmessage"), "desc"],
       ["id", "desc"],
     ],
   });
