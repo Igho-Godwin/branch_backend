@@ -1,16 +1,15 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
 const passport = require("passport");
 const rateLimit = require("express-rate-limit");
 
 const app = express();
 
-var corsOptions = {
-  origin: process.env.FRONTEND_ORIGIN,
-};
 
-app.use(cors(corsOptions));
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', process.env.FRONTEND_ORIGIN);
+  next();
+});
 
 // parse requests of content-type - application/json
 const bodyParser = require("body-parser");
