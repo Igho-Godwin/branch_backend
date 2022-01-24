@@ -1,18 +1,34 @@
 const request = require("supertest");
 const faker = require("@faker-js/faker");
+
 const { generateUUID } = require("../controllers/globals.js");
 
 let db;
 let app;
 
-beforeAll(() => {
+beforeAll(async () => {
   const server = require("../app");
   db = server.db;
   app = server.app;
+  try {
+    await db.sequelize.sync();
+  } catch (error) {
+    console.log(`
+      You did something wrong dummy!
+      ${error}
+    `);
+  }
 });
 
 afterAll(async () => {
-  await db.sequelize.close();
+  try {
+    db.sequelize.close();
+  } catch (error) {
+    console.log(`
+          You did something wrong dummy!
+          ${error}
+        `);
+  }
 });
 
 describe("Agent Integration test", () => {

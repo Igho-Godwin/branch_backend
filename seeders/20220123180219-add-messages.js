@@ -1,7 +1,7 @@
 "use strict";
-
 const csvtojson = require("csvtojson");
 var moment = require("moment");
+
 const { generateUUID } = require("../controllers/globals.js");
 
 const fileName = "./messageSeeds.csv";
@@ -11,6 +11,7 @@ module.exports = {
     const messages = [];
 
     const source = await csvtojson().fromFile(fileName);
+
     for (var i = 0; i < source.length; i++) {
       var userId = source[i]["User ID"],
         entryDate = source[i]["Timestamp (UTC)"],

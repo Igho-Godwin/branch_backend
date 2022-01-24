@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-var cors = require('cors');
+var cors = require("cors");
 const passport = require("passport");
 const rateLimit = require("express-rate-limit");
 
@@ -8,8 +8,8 @@ const app = express();
 
 var corsOptions = {
   origin: process.env.FRONTEND_ORIGIN,
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 
 app.use(cors(corsOptions));
 

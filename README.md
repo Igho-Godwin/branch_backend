@@ -1,55 +1,84 @@
-# Docker Compose Nodejs and MySQL example
+# Branch CRM BACKEND
 
-## Run the System
-We can easily run the whole with only a single command:
-```bash
-docker-compose up
-```
-export NODE_ENV=test
-node ./models/seeders/messageSeeder.js
+A Node application that handles customers requests.
 
-npm install jest --global
+## API Link
 
-Docker will pull the MySQL and Node.js images (if our machine does not have it before).
+https://branchbackend.herokuapp.com/api/
 
-The services can be run on the background with command:
-```bash
-docker-compose up -d
-```
+## Tools
 
-## Stop the System
-Stopping all the running containers is also simple with a single command:
-```bash
-docker-compose down
-```
+- [Node](https://nodejs.org/)
+- [Expressjs](https://expressjs.com/)
+- [Sequelize ORM](https://sequelize.org/)
+- [Passport](https://www.passportjs.org/)
 
-If you need to stop and remove all containers, networks, and all images used by any service in <em>docker-compose.yml</em> file, use the command:
-```bash
-docker-compose down --rmi all
-```
+## Prerequisites
 
-For more detail, please visit:
-> [Dockerize Node.js Express and MySQL example - Docker Compose](https://www.bezkoder.com/docker-compose-nodejs-mysql/)
+The following should be installed in your machine
 
-Related Posts:
-> [Build Node.js Rest APIs with Express & MySQL](https://www.bezkoder.com/node-js-rest-api-express-mysql/)
+- Node v16.13.0 and above if you are not using docker
 
-> [Upload/store images in MySQL using Node.js, Express & Multer](https://www.bezkoder.com/node-js-upload-image-mysql/)
+## How To Install And Run The Application on Local
 
-> [Node.js: Upload CSV file data into Database with Express](https://bezkoder.com/node-js-upload-csv-file-database/)
+- Clone this [Repo]('https://github.com/Igho-Godwin/branch_backend') and `cd` into it
+- create the .env file in your root directory and add
 
-> [Node.js: Upload Excel file data into Database with Express](https://www.bezkoder.com/node-js-upload-excel-file-database/)
+* DEV_DB_HOST=
+* DEV_DB_USER=
+* DEV_DB_PASSWORD=
+* DEV_DB_NAME=
+* DEV_DB_PORT=
 
-> [Build Node.js Rest APIs with Express, Sequelize & MySQL](https://bezkoder.com/node-js-express-sequelize-mysql/)
+* TEST_DB_HOST=
+* TEST_DB_USER=
+* TEST_DB_PASSWORD=
+* TEST_DB_NAME=
+* TEST_DB_PORT=
 
-> [Server side Pagination in Node.js with Sequelize and MySQL](https://bezkoder.com/node-js-sequelize-pagination-mysql/)
+* NODE_ENV=development
 
-> [Deploying/Hosting Node.js app on Heroku with MySQL database](https://bezkoder.com/deploy-node-js-app-heroku-cleardb-mysql/)
+* FRONTEND_ORIGIN=
 
-Security:
-> [Node.js Express: JWT example | Token Based Authentication & Authorization](https://bezkoder.com/node-js-jwt-authentication-mysql/)
+- Install all the dependancies by running the `npm install`
+- Run database migrations `npm run db:migrate`
+- Seed database `npm run db:seed`
+- Start the application on development mode by running `npm start`
+- your origin has to refrenced in the api server though to use app
 
-Associations:
-> [Sequelize Associations: One-to-Many Relationship example](https://bezkoder.com/sequelize-associate-one-to-many/)
+## How To Install And Run The Application with docker
 
-> [Sequelize Associations: Many-to-Many Relationship example](https://bezkoder.com/sequelize-associate-many-to-many/)
+- create the .env file in your root directory and add
+
+* MYSQLDB_USER=
+* MYSQLDB_ROOT_PASSWORD=
+* MYSQLDB_DATABASE=
+* MYSQLDB_LOCAL_PORT=
+* MYSQLDB_DOCKER_PORT=
+
+* NODE_LOCAL_PORT=
+* NODE_DOCKER_PORT=
+
+* DEV_DB_HOST=
+* DEV_DB_USER=
+* DEV_DB_PASSWORD=
+* DEV_DB_NAME=
+* DEV_DB_PORT=
+
+* TEST_DB_HOST=
+* TEST_DB_USER=
+* TEST_DB_PASSWORD=
+* TEST_DB_NAME=
+* TEST_DB_PORT=
+
+* NODE_ENV=development
+
+* FRONTEND_ORIGIN=
+
+- run docker-compose up
+
+- visit http://localhost:port/
+
+## Issues
+
+Issues are always very welcome. Please be sure to create a constructive issue when neccessary.

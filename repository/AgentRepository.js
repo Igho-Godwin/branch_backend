@@ -3,7 +3,6 @@ const AgentModel = db.sequelize.models.Agent;
 
 exports.create = async (agent) => {
   const agentDetails = await AgentModel.create(agent);
-
   return agentDetails;
 };
 

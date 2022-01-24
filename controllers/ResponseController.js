@@ -1,7 +1,9 @@
 const Joi = require("joi");
+
 const { create, findAll } = require("../repository/ResponseRepository");
 const { update: updateMessage } = require("../repository/MessageRepository");
-const { generateUUID } = require("./globals");
+
+const { generateUUID, successMsg, defaultErrorMsg } = require("./globals");
 
 exports.create = async (req, res) => {
   const schema = Joi.object({
@@ -33,21 +35,18 @@ exports.create = async (req, res) => {
     const responseDetails = await create(agentResponse);
     await updateMessage(req.user.agentId, messageId);
     return res.send({
-      message: "Successful",
+      message: successMsg,
       data: responseDetails,
       token: req.headers.authorization,
     });
   } catch (err) {
     if (typeof err.errors != "undefined") {
       return res.status(422).send({
-        message:
-          err.errors[0].message ||
-          err.message ||
-          "Some error occurred while getting messages.",
+        message: err.errors[0].message,
       });
     }
     return res.status(500).send({
-      message: err.message || "Some error occurred while getting messages.",
+      message: err.message || defaultErrorMsg,
     });
   }
 };
@@ -75,19 +74,16 @@ exports.findAll = async (req, res) => {
     return res.send({
       data: responses,
       token: req.headers.authorization,
-      message: "Successful",
+      message: successMsg,
     });
   } catch (err) {
     if (typeof err.errors != "undefined") {
       return res.status(422).send({
-        message:
-          err.errors[0].message ||
-          err.message ||
-          "Some error occurred while getting messages.",
+        message: err.errors[0].message,
       });
     }
     return res.status(500).send({
-      message: err.message || "Some error occurred while getting messages.",
+      message: err.message || defaultErrorMsg,
     });
   }
 };

@@ -1,5 +1,8 @@
 const Joi = require("joi");
+
 const { findAll } = require("../repository/MessageRepository");
+
+const { successMsg, defaultErrorMsg } = require("./globals");
 
 exports.findAll = async (req, res) => {
   const { offset, limit, param } = req.query;
@@ -24,19 +27,16 @@ exports.findAll = async (req, res) => {
     return res.send({
       data: messages,
       token: req.headers.authorization,
-      message: "Successful",
+      message: successMsg,
     });
   } catch (err) {
     if (typeof err.errors != "undefined") {
       return res.status(422).send({
-        message:
-          err.errors[0].message ||
-          err.message ||
-          "Some error occurred while getting messages.",
+        message: err.errors[0].message,
       });
     }
     return res.status(500).send({
-      message: err.message || "Some error occurred while getting messages.",
+      message: err.message || defaultErrorMsg,
     });
   }
 };

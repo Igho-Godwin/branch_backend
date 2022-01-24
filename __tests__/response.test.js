@@ -1,5 +1,6 @@
 const request = require("supertest");
 const faker = require("@faker-js/faker");
+
 const { generateUUID } = require("../controllers/globals.js");
 
 let db;
@@ -12,6 +13,14 @@ beforeAll(async () => {
   const server = require("../app");
   db = server.db;
   app = server.app;
+  try {
+    await db.sequelize.sync();
+  } catch (error) {
+    console.log(`
+        You did something wrong dummy!
+        ${error}
+      `);
+  }
   createAgent = require("../repository/AgentRepository").create;
   create = require("../repository/ResponseRepository").create;
   const signUpTestDetails = {
@@ -33,7 +42,15 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-  await db.sequelize.close();
+  try {
+    db.sequelize.close();
+  } catch (error) {
+    console.log(`
+          You did something wrong dummy!
+          ${error}
+        `);
+    //throw error;
+  }
 });
 
 describe("Response integration test", () => {
