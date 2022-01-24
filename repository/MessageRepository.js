@@ -53,7 +53,7 @@ exports.findAll = async (offset, limit, agentId, param) => {
       include: [
         [
           MessageModel.sequelize.literal(
-            `CASE WHEN message like "%loan%" THEN 1 ELSE 0 END `
+            "CASE WHEN 'message' like '%loan%' THEN 1 ELSE 0 END "
           ),
           "loanMessage",
         ],
