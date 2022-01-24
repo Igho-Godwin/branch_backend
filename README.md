@@ -6,6 +6,10 @@ A Node application that handles customers requests.
 
 https://branchbackend.herokuapp.com/api/
 
+## API Documentation
+
+https://documenter.getpostman.com/view/1599757/UVXqGDks
+
 ## Tools
 
 - [Node](https://nodejs.org/)
