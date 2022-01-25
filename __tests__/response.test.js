@@ -49,7 +49,6 @@ afterAll(async () => {
           You did something wrong dummy!
           ${error}
         `);
-    //throw error;
   }
 });
 
